@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>curd-s Hoz</title>
+    <script defer src="script.js"></script>
+</head>
+
+<body class="bg-[#222] text-white">
+    <div class="sticky flex justify-center text-center items-center z-1 top-0" id="contain">
+    </div>
+    <div id="crud" class="w-[95%] m-auto">
+        <div class="head text-center [text-transform:uppercase] my-[10px] mx-[0]">
+            <h2 class="text-4xl font-bold animate-pulse">cruds hoz</h2>
+            <p class="text-xl font-semibold">pruduct management system</p>
+        </div>
+
+        <div class="inputs font-semibold space-y-4">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-2">
+                <label class="md:mr-4">Title:</label>
+                <input class="w-full md:w-auto" placeholder="title" type="text" id="title">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="flex flex-col">
+                    <label>Price:</label>
+                    <input type="number" id="price" placeholder="price" class="w-full">
+                </div>
+                <div class="flex flex-col">
+                    <label>Taxes:</label>
+                    <input type="number" id="taxes" placeholder="taxes" class="w-full">
+                </div>
+                <div class="flex flex-col">
+                    <label>Ads:</label>
+                    <input type="number" id="ads" placeholder="ads" class="w-full">
+                </div>
+                <div class="flex flex-col">
+                    <label>Discount:</label>
+                    <input type="number" id="discount" placeholder="discount" class="w-full">
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <small id="total" class="bg-green-700 w-full text-center rounded px-2 py-1">Total: 0</small>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-2">
+                <label class="md:mr-4">Count:</label>
+                <input type="number" id="count" placeholder="count" class="w-full md:w-auto">
+            </div>
+
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-2">
+                <label class="md:mr-4">Category:</label>
+                <input list="categorys" placeholder="category" id="category" class="w-full md:w-auto">
+                <datalist id="categorys">
+                </datalist>
+            </div>
+
+            <button
+                class="trasition duration-250 w-[100%] h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white"
+                id="submit">Create</button>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="outputs">
+            <div class="searchBlock">
+                <input onkeyup="searchData(this.value)" type="text" placeholder="search Title" id="search">
+                <div class="btnSearch flex justify-between">
+                    <button
+                        class="trasition duration-250 w-[45%] h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white"
+                        onclick="getSearchMode(this.id)" id="searchTitle">Search By Title</button>
+                    <button
+                        class="trasition duration-250 w-[45%] h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white"
+                        onclick="getSearchMode(this.id)" id="searchCategory">Search By Category</button>
+                </div>
+            </div>
+            <div id="deleteAll">
+
+            </div>
+            <div class="overflow-x-auto my-5">
+                <table
+                    class="min-w-[800px] w-full text-sm text-center table-auto border-collapse border border-gray-700">
+                    <thead class="bg-[#390053] text-white">
+                        <tr>
+                            <th class="px-2 py-1 border border-gray-700">ID</th>
+                            <th class="px-2 py-1 border border-gray-700">Title</th>
+                            <th class="px-2 py-1 border border-gray-700">Price</th>
+                            <th class="px-2 py-1 border border-gray-700">Taxes</th>
+                            <th class="px-2 py-1 border border-gray-700">Ads</th>
+                            <th class="px-2 py-1 border border-gray-700">Discount</th>
+                            <th class="px-2 py-1 border border-gray-700">Total</th>
+                            <th class="px-2 py-1 border border-gray-700">Category</th>
+                            <th class="px-2 py-1 border border-gray-700">Count</th>
+                            <th class="px-2 py-1 border border-gray-700">Update</th>
+                            <th class="px-2 py-1 border border-gray-700">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody" class="bg-[#2c2c2c]">
+                        <!-- Table rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
