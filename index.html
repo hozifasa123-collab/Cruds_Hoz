@@ -20,13 +20,13 @@
 
         <div class="inputs font-semibold space-y-4">
             <div class="flex flex-col md:flex-row items-start md:items-center gap-2">
-                <label class="md:mr-4">Title:</label>
-                <input class="w-full md:w-auto" placeholder="title" type="text" id="title">
+                <label class="md:mr-4">Title:Required</label>
+                <input class="w-full md:w-auto" placeholder="title" type="text" id="title" required>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="flex flex-col">
-                    <label>Price:</label>
+                    <label>Price:Required</label>
                     <input type="number" id="price" placeholder="price" class="w-full" min="1">
                 </div>
                 <div class="flex flex-col">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="flex flex-col md:flex-row items-start md:items-center gap-2">
-                <label class="md:mr-4">Category:</label>
+                <label class="md:mr-4">Category:Required</label>
                 <input list="categorys" placeholder="category" id="category" class="w-full md:w-auto">
                 <datalist id="categorys">
                 </datalist>
