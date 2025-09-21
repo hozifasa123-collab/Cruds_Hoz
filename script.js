@@ -375,7 +375,7 @@ function searchData(value) {
         for (let i = 0; i < dataPro.length; i++) {
             if (dataPro[i].title.includes(value.toLowerCase())) {
                 table += `
-        < tr >
+        <tr>
                         <td class='py-2 px-2'>${i + 1}</td>
                         <td class='py-2 px-2'>${dataPro[i].title}</td>
                         <td class='py-2 px-2'>${dataPro[i].price}</td>
@@ -387,14 +387,14 @@ function searchData(value) {
                         <td class='py-2 px-2'>${dataPro[i].count}</td>
                         <td class='py-2 px-2' onclick='updateData(${i})'><button class="trasition duration-250 w-25 h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white" id="update">update</button></td>
                         <td class='py-2 px-2' onclick='deleteData(${i})'><button class="trasition duration-250 w-25 h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white" id="delete">delete</button></td>
-                    </tr > `
+                    </tr> `
             }
         }
     } else {
         for (let i = 0; i < dataPro.length; i++) {
             if (dataPro[i].category.includes(value.toLowerCase())) {
                 table += `
-        < tr >
+        <tr>
                         <td class='py-2 px-2'>${i + 1}</td>
                         <td class='py-2 px-2'>${dataPro[i].title}</td>
                         <td class='py-2 px-2'>${dataPro[i].price}</td>
@@ -406,7 +406,7 @@ function searchData(value) {
                         <td class='py-2 px-2'>${dataPro[i].count}</td>
                         <td class='py-2 px-2' onclick='updateData(${i})'><button class="trasition duration-250 w-25 h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white" id="update">update</button></td>
                         <td class='py-2 px-2' onclick='deleteData(${i})'><button class="trasition duration-250 w-25 h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white" id="delete">delete</button></td>
-                    </tr > `
+                    </tr> `
             }
         }
     }
