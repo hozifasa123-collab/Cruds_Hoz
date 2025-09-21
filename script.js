@@ -296,15 +296,42 @@ function updateData(i) {
 }
 
 function saveData(i) {
-    dataPro[i].price = document.getElementById('p').value
-    dataPro[i].taxes = document.getElementById('t').value
-    dataPro[i].ads = document.getElementById('a').value
-    dataPro[i].discount = document.getElementById('d').value
-    dataPro[i].count = document.getElementById('c').value
+    dataPro[i].price = parseFloat(document.getElementById('p').value)
+    dataPro[i].taxes = parseFloat(document.getElementById('t').value === '' ? 0 : document.getElementById('t').value)
+    dataPro[i].ads = parseFloat(document.getElementById('a').value === '' ? 0 : document.getElementById('a').value)
+    dataPro[i].discount = parseFloat(document.getElementById('d').value === '' ? 0 : document.getElementById('d').value)
+    dataPro[i].count = parseInt(document.getElementById('c').value === '' ? 1 : document.getElementById('c').value)
     dataPro[i].total = (+dataPro[i].price + +dataPro[i].taxes + +dataPro[i].ads) - +dataPro[i].discount
-    let table = ''
-    for (let i = 0; i < dataPro.length; i++) {
-        table += `
+
+    if (isNaN(dataPro[i].price) || dataPro[i].price < 0) {
+        displayErrorMessage("Price must be a valid positive number.");
+        return;
+    }
+
+    else if (dataPro[i].taxes < 0) {
+        displayErrorMessage("Taxes must be a valid non-negative number.");
+        return;
+    }
+
+    else if (dataPro[i].ads < 0) {
+        displayErrorMessage("Ads must be a valid non-negative number.");
+        return;
+    }
+
+    else if (dataPro[i].discount < 0) {
+        displayErrorMessage("Discount must be a valid non-negative number.");
+        return;
+    }
+
+    else if (dataPro[i].count < 0) {
+        displayErrorMessage("Count must be a valid positive integer.");
+        return;
+    }
+
+    else {
+        let table = ''
+        for (let i = 0; i < dataPro.length; i++) {
+            table += `
         <tr>
             <td class='py-2 px-2'>${i + 1}</td>
             <td class='py-2 px-2'>${dataPro[i].title}</td>
@@ -319,9 +346,10 @@ function saveData(i) {
             <td class='py-2 px-2' onclick='deleteData(${i})'><button class="trasition duration-250 w-25 h-[30px] text-[rgb(127.5,127.5,127.5)] border-1 border-[#390053] cursor-pointer bg-[#390053] rounded-xl hover:bg-[#51025f] hover:border-[#51025f] hover:[letter-spacing:2px] active:text-white active:border-white" id="delete">delete</button></td>
         </tr> `
 
+        }
+        document.getElementById('tbody').innerHTML = table
+        localStorage.setItem('product', JSON.stringify(dataPro))
     }
-    document.getElementById('tbody').innerHTML = table
-    localStorage.setItem('product', JSON.stringify(dataPro))
 }
 
 // search
